@@ -22,22 +22,47 @@ public class Miinuskraadid {
         double esimeseposkraadid = 0;
         for (int i=0; i < kraadid1.length; i++) {
             if (kraadid1[i] > 0) {
-                esimesepositiivsed.add(kraadid1[i]);
+                esimeseposkraadid ++;
             }
-            System.out.println(esimesepositiivsed);
+            //System.out.println(esimeseposkraadid);
         }
 
         double esimesenegkraadid = 0;
         int i;
         for (i = 0; i < kraadid1.length; i++){
             if (kraadid1[i] <= 0){
-                esimesenegatiivsed.add(kraadid1[i]);
+                esimesenegkraadid ++;
             }
-            System.out.println(esimesenegatiivsed);
+            //System.out.println(esimesenegkraadid);
+        }
+        double vastus = 0;
+        vastus = esimeseposkraadid - esimesenegkraadid;
+        System.out.println("Esimeses massiivis on positiivseid kraade rohkem: " + vastus + " võrra");
+
+        double teiseposkraadid = 0;
+        int z;
+        for (z = 0; z < kraadid2.length; z++) {
+            if (kraadid2[z] > 0) {
+                teiseposkraadid ++;
+            }
+            //System.out.println(esimeseposkraadid);
         }
 
-        double vastus1 = 0;
-        vastus1 = esimesepositiivsed.size()- esimesenegatiivsed.size();
-        System.out.println(vastus1);
+        double teisenegkraadid = 0;
+        for (z = 0; z < kraadid2.length; z++){
+            if (kraadid2[z] <= 0){
+                teisenegkraadid ++;
+            }
+            //System.out.println(esimesenegkraadid);
+        }
+        double vastus2 = 0;
+        vastus = teiseposkraadid - teisenegkraadid;
+
+        if (vastus < 0) {
+            System.out.println("Massiivis on negatiivseid rohkem kui positiivseid!");
+        } else {
+            System.out.println("Teises massiivis on positiivseid kraade rohkem" + vastus2);
+        }
+
     }
 }
