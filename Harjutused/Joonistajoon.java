@@ -15,63 +15,48 @@ import javafx.stage.Stage;
 /**
  * Created by anni-bessie on 28.01.17.
  */
-public class Joonistajoon extends Application{
+public class Joonistajoon extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Stage stage = new Stage();
-        VBox vbox = new VBox();
-        vbox.setSpacing(2);
-        Scene scene = new Scene(vbox, 500, 500);
-        stage.setScene(scene);
-
-        Label algusx = new Label();
-        algusx.setText("Sisesta joone algus ja lõpu koordinaadid");
-
-        TextField algusxx = new TextField();
-        algusxx.setPromptText("Alguspunkti x-koordinaat");
-        String algusxkoht = algusxx.getText();
-        int xalgus = Integer.parseInt(algusxkoht);
-        double x = (double) xalgus;
-        //kas ma võin siin teha double'iks, et järgmises stseenis seda kasutada?
-        System.out.println(xalgus);
-
-        TextField algusyy = new TextField();
-        algusyy.setPromptText("Alguspunkti y-koordinaat");
-        String algusykoht = algusyy.getText();
-        int yalgus = Integer.parseInt(algusykoht);
-        double y = (double) yalgus;
-
-        TextField loppxx = new TextField();
-        loppxx.setPromptText("Lõpppunkti x-koordinaat");
-        String loppxkoht = loppxx.getText();
-        int xlopp = Integer.parseInt(loppxkoht);
-        double xlopu = (double) xlopp;
-
-        TextField loppyy = new TextField();
-        loppyy.setPromptText("Lõpppunkti y-koordinaat");
-        String loppykoht = loppyy.getText();
-        int ylopp = Integer.parseInt(loppykoht);
-        double ylopu = (double) ylopp;
-
-        Button sisesta = new Button("Joonista mulle joon!");
+    public void start(Stage primaryStage) throws Exception{
         Pane pane = new Pane();
-        Scene tulemus = new Scene(pane, 500, 500);
+        Scene scene = new Scene(pane, 500, 500);
 
-        sisesta.setOnMouseClicked(event -> {
-            //stage.setScene(tulemus);
+        Label algusx = new Label("Sisesta joone algus ja lõpu koordinaadid");
+        TextField algusxx = new TextField("Alguspunkti x-koordinaat");
+        TextField algusyy = new TextField("Alguspunkti y-koordinaat");
+        TextField loppxx = new TextField("Lõpppunkti x-koordinaat");
+        TextField loppyy = new TextField("Lõpppunkti y-koordinaat");
+        Button sisesta = new Button("Joonista mulle joon!");
+
+        algusxx.setTranslateY(50);
+        algusyy.setTranslateY(100);
+        loppxx.setTranslateY(150);
+        loppyy.setTranslateY(200);
+        sisesta.setTranslateY(250);
+
+
+        sisesta.setOnAction(event -> {
             Line joon = new Line();
+            double xalgus = Integer.parseInt(algusxx.getText());
+            double yalgus = Integer.parseInt(algusyy.getText());
+            double xlopp = Integer.parseInt(loppxx.getText());
+            double ylopp = Integer.parseInt(loppyy.getText());
+
             joon.setFill(Color.BLACK);
-            joon.setStartX(x);
-            joon.setStartY(y);
-            joon.setEndX(xlopu);
-            joon.setEndY(ylopu);
-            pane.getChildren().addAll(joon);
+            joon.setStartX(xalgus);
+            joon.setStartY(yalgus);
+            joon.setEndX(xlopp);
+            joon.setEndY(ylopp);
+            pane.getChildren().removeAll(algusx, algusxx, algusyy, loppxx, loppyy, sisesta);
+            pane.getChildren().add(joon);
         });
 
-        vbox.getChildren().addAll(algusx, algusxx, algusyy, loppxx, loppyy, sisesta);
-
-        stage.show();
+        pane.getChildren().addAll(algusx, algusxx, algusyy, loppxx, loppyy, sisesta);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
-
 }
+
+
+
