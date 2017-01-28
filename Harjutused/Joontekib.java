@@ -23,56 +23,61 @@ import static javax.swing.UIManager.getInt;
  */
 public class Joontekib extends Application {
 
-        @Override
-        public void start(Stage primaryStage) throws Exception {
-
-            VBox vbox = new VBox();
-            Scene avaleht = new Scene(vbox, 500, 500);
-            vbox.setSpacing(2);
-            Stage stage = new Stage();
-            stage.setScene(avaleht);
-            stage.show();
-
-            Label algusx = new Label();
-            algusx.setText("Sisesta joone algus ja lõpu koordinaadid");
-
-            TextField algusxx = new TextField();
-            algusxx.setPromptText("Alguspunkti x-koordinaat");
-            String algusxkoht = algusxx.getText();
-            System.out.println(algusxkoht);
-
-            TextField algusyy = new TextField();
-            algusyy.setPromptText("Alguspunkti y-koordinaat");
-            String algusykoht = algusyy.getText();
-
-            TextField loppxx = new TextField();
-            loppxx.setPromptText("Lõpppunkti x-koordinaat");
-            String loppxkoht = loppxx.getText();
-
-            TextField loppyy = new TextField();
-            loppyy.setPromptText("Lõpppunkti y-koordinaat");
-            String loppykoht = loppyy.getText();
-
-            Button sisesta = new Button("Joonista mulle joon!");
-            Pane pane = new Pane();
-            Scene tulemus = new Scene(pane, 500, 500);
-
-            System.out.println(algusxkoht);
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        //VBox vbox = new VBox();
+        //Scene avaleht = new Scene();
+        //Stage stage = new Stage();
 
 
-            sisesta.setOnMouseClicked(event -> {
-                stage.setScene(tulemus);
-                Line joon = new Line();
-                joon.setFill(Color.BLACK);
-                joon.setStartX(getInt(algusxkoht));
-                joon.setStartY(getInt(algusykoht));
-                joon.setEndX(getInt(loppxkoht));
-                joon.setEndY(getInt(loppykoht));
-                stage.show();
+        VBox vbox = new VBox();
+        Scene avaleht = new Scene(vbox, 500, 500);
+        vbox.setSpacing(2);
+        Stage stage = new Stage();
+        stage.setScene(avaleht);
+        stage.show();
 
-            });
+        Label algusx = new Label();
+        algusx.setText("Sisesta joone algus ja lõpu koordinaadid");
+
+        TextField algusxx = new TextField();
+        algusxx.setPromptText("Alguspunkti x-koordinaat");
+        String algusxkoht = algusxx.getText();
+        int xalgus = Integer.parseInt(algusxkoht);
+        System.out.println(xalgus);
+
+        TextField algusyy = new TextField();
+        algusyy.setPromptText("Alguspunkti y-koordinaat");
+        String algusykoht = algusyy.getText();
+
+        TextField loppxx = new TextField();
+        loppxx.setPromptText("Lõpppunkti x-koordinaat");
+        String loppxkoht = loppxx.getText();
+
+        TextField loppyy = new TextField();
+        loppyy.setPromptText("Lõpppunkti y-koordinaat");
+        String loppykoht = loppyy.getText();
+
+        Button sisesta = new Button("Joonista mulle joon!");
+        Pane pane = new Pane();
+        Scene tulemus = new Scene(pane, 500, 500);
+
+        //System.out.println(algusxkoht);
 
 
-            vbox.getChildren().addAll(algusx, algusxx, algusyy, loppxx, loppyy, sisesta);
-        }
+        sisesta.setOnMouseClicked(event -> {
+            stage.setScene(tulemus);
+            Line joon = new Line();
+            joon.setFill(Color.BLACK);
+            joon.setStartX(getInt(algusxkoht));
+            joon.setStartY(getInt(algusykoht));
+            joon.setEndX(getInt(loppxkoht));
+            joon.setEndY(getInt(loppykoht));
+
+        });
+
+        vbox.getChildren().addAll(algusx, algusxx, algusyy, loppxx, loppyy, sisesta);
+
+    }
 }
+
