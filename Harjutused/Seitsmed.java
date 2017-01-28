@@ -14,30 +14,31 @@ public class Seitsmed {
 
             int[] naide = {7, 4, 324, 65, 4, 78, 7, 45, 4};
 
-            ArrayList<Integer> korrutakahega = new ArrayList<>();
+            ArrayList<Integer> kahegakorrutatud = new ArrayList<>();
 
-            for (int i = 0; i < naide.length; i++){
-                if (naide [i] ==7) {
-                    int seitsekorrutakahega = naide[i] * 2;
-                    korrutakahega.add(seitsekorrutakahega);
-                }
-                else {
-                    korrutakahega.add(naide[i]);
+            for (int i = 0; i <naide.length ; i++) {
+                if (naide[i] == 7){
+                    kahegakorrutatud.add(naide[i]*2);
+                } else {
+                    kahegakorrutatud.add(naide[i]);
                 }
             }
-            System.out.println(korrutakahega);
+            System.out.println(kahegakorrutatud);
 
             int l = 0;
             double summa = 0;
 
-            while (l < korrutakahega.size()){
-                summa = summa + korrutakahega.get(l);
+            while (l < kahegakorrutatud.size()){
+                summa = summa + kahegakorrutatud.get(l);
                 l++;
             }
+
             System.out.println(summa);
 
-            double keskmine = summa/korrutakahega.size();
+            double keskmine = summa / kahegakorrutatud.size();
+
             System.out.println(keskmine);
+
         }
 }
 
