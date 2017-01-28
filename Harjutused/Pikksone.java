@@ -12,27 +12,21 @@ public class Pikksone {
         String[] naide = {"kaalikas", "joonas", "maakera", "homeros", "mandel"};
 
         double summa = 0;
-        for (int i=0; i < naide.length; i++) {
-            naide[i].length();
-            System.out.println(naide[i].length());
-
+        for (int i = 0; i < naide.length ; i++) {
             summa = summa + naide[i].length();
         }
+        double keskmine = summa / naide.length;
         System.out.println(summa);
-
-        double keskmine = 0;
-        keskmine = summa/naide.length;
-
         System.out.println(keskmine);
 
-        int vastus = 0;
-        for (int i=0; i < naide.length; i++){
+        double pikemad = 0;
+        for (int i = 0; i <naide.length ; i++) {
             if (naide[i].length() > keskmine){
-                vastus++;
+                pikemad ++;
             }
+
         }
-
-        System.out.println(vastus);
-
+        System.out.println(pikemad);
     }
+
 }
