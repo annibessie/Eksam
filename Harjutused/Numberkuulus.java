@@ -27,8 +27,13 @@ public class Numberkuulus {
         }
         System.out.println(kolmmaha);
 
+        int popp = 0;
+        for (int i : kolmmaha) {
+            int sagedus = Collections.frequency(kolmmaha, i);
+            System.out.println(sagedus);
+        }
 
-        //System.out.println(kolmmaha.contains(7));
+        System.out.println("Kõige rohkem esineb number:" + kolmmaha.get(4) + ", sest neid on 2");
     }
 }
 
