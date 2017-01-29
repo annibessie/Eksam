@@ -18,7 +18,7 @@ public class Pood1 {
     public static void main(String[] args) {
 
         String kassapidaja = "Laine";
-        Kassa kassa1 = new Kassa(kassapidaja);
+        Kassa1 kassa1 = new Kassa1(kassapidaja);
 
         kassa1.lisaToode("Piim");
         kassa1.lisaToode("Sai");

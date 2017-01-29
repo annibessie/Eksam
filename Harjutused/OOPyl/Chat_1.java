@@ -18,25 +18,27 @@ public class Chat_1 {
     }
 
     public void sisestaSonum(String kasutaja, String s) {
-        String[] rida = new String [2];
-        rida[0] = kasutaja;
+        String [] rida = new String [2];
+        rida [0] = kasutaja;
         rida[1] = s;
+
         messages.add(rida);
+
     }
 
     public void prindiKoikSonumidKoosKasutajanimega() {
-        for (int i= 0; i< messages.size(); i++) {
+        for (int i = 0; i < messages.size() ; i++) {
             System.out.println(Arrays.toString(messages.get(i)));
         }
+
         System.out.println();
     }
 
     public void adminKustutabSonumi(String kustutatav) {
-        for (int i = 0; i < messages.size(); i++) {
+        for (int i = 0; i < messages.size() ; i++) {
             if (messages.get(i)[1].equals(kustutatav)){
                 messages.remove(i);
             }
-
         }
 
     }
