@@ -56,9 +56,9 @@ public class Miinuskraadid {
             //System.out.println(esimesenegkraadid);
         }
         double vastus2 = 0;
-        vastus = teiseposkraadid - teisenegkraadid;
+        vastus2 = teiseposkraadid - teisenegkraadid;
 
-        if (vastus < 0) {
+        if (vastus2 < 0) {
             System.out.println("Massiivis on negatiivseid rohkem kui positiivseid!");
         } else {
             System.out.println("Teises massiivis on positiivseid kraade rohkem" + vastus2);
