@@ -9,6 +9,7 @@ public class Liiklus {
         liiklusinfo liiklus = new liiklusinfo();
 
         liiklus.autosuund ();
+        liiklus.autosuunad();
         liiklus.liiklussagedus();
         liiklus.poppsuund();
 

@@ -1,6 +1,5 @@
 package Harjutused.Eksam;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,15 +7,10 @@ import java.util.Scanner;
  * Created by anni-bessie on 2.02.17.
  */
 public class liiklusinfo {
-    String autosuund;
-    String Kesklinn;
-    String Mustamäe;
-    String Tabasalu;
-    String Paldiski;
+    int autosuund;
 
 
-
-    ArrayList autosuunad = new ArrayList();
+    ArrayList <Integer> autosuunad = new ArrayList();
     ArrayList kesklinna = new ArrayList();
     ArrayList mustakale = new ArrayList();
     ArrayList tabasallu = new ArrayList();
@@ -26,37 +20,39 @@ public class liiklusinfo {
         for (int i = 0; i < 5; i++) {
             Scanner input = new Scanner(System.in);
 
-            System.out.println("Kuhu suunda auto sõitis? Sisesta asukoha esimene täht - Kesklinn, Mustamäe, Tabasalu või Paldiski");
-            autosuund = input.next();
+            System.out.println("Kuhu suunda auto sõitis? Sisesta asukoha esimene täht - Kesklinn = 1, Mustamäe = 2, Tabasalu = 3 või Paldiski = 4");
+            autosuund = Integer.parseInt(input.next());
+            autosuunad.add(autosuund);
         }
 
+        System.out.println(autosuunad.size());
+
     }
 
-    public void lisasuunad (){
-        autosuunad.add(autosuund);
-    }
 
     public void autosuunad () {
         for (int i = 0; i < 5 ; i++) {
-            if (autosuunad.get(i).equals(Kesklinn)){
-                kesklinna.add (autosuunad);
-            }
-            else if (autosuunad.get(i).equals(Mustamäe)){
-                mustakale.add(autosuunad);
-            }
-            else if (autosuunad.get(i).equals(Tabasalu)) {
-                tabasallu.add(autosuunad);
-            }
-            else if (autosuunad.get(i).equals(Paldiski)){
-                paldiskisse.add (autosuunad.get(i));
+            if (autosuunad.get(i) == 1) {
+                kesklinna.add(autosuunad.get(i));
+                System.out.println(kesklinna);
+
+            } else if (autosuunad.get(i) == 2) {
+                mustakale.add(autosuunad.get(i));
+
+            } else if (autosuunad.get(i) == 3) {
+                tabasallu.add(autosuunad.get(i));
+
+            } else if (autosuunad.get(i) == 4) {
+                paldiskisse.add(autosuunad.get(i));
             }
         }
     }
+
 
     public void liiklussagedus () {
         System.out.println("Kesklinna sõitis: " + kesklinna.size() + " autot.");
         System.out.println("Mustamäele sõitis: " + mustakale.size() + " autot.");
-        System.out.println("Tabasaluu sõitis: " + tabasallu.size() + " autot.");
+        System.out.println("Tabasallu sõitis: " + tabasallu.size() + " autot.");
         System.out.println("Paldiskisse sõitis: " + paldiskisse.size() + " autot.");
     }
 
