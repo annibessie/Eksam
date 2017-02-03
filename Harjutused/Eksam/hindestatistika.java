@@ -69,7 +69,6 @@ public class hindestatistika {
     public void parimtulemus () {
             Integer parim = Collections.max(hinded);
             System.out.println("Parima hinde said õpilased, kes said hinde: " + parim);
-
     }
 
 }
